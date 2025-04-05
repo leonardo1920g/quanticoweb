@@ -24,3 +24,23 @@ body {
   color: var(--foreground);
   font-family: var(--font-poppins);
 }
+
+/* Animación personalizada */
+@keyframes buzz {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
+.buzz-animation {
+  animation: buzz 1.5s ease-in-out infinite;
+}
