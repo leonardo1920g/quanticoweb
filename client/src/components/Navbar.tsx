@@ -10,7 +10,7 @@ const Navbar = () => {
     const pathname = usePathname();
     return (
         
-        <nav className="fixed top-0 left-0 w-full bg-gradient-to-b from-slate-900 to-zinc-950 shadow-[0px_7px_20px_#22d3ee] text-white flex justify-between py-3 px-20">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-slate-900 to-zinc-950 shadow-[0px_7px_20px_#22d3ee] text-white flex justify-between py-3 px-20">
 
             <h1 className="font-bold text-xl">
                 <Link href={'/'}>

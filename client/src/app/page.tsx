@@ -1,11 +1,9 @@
-import Image from "next/image";
+import Services from "./Landing/Services";
 
 export default function Home() {
   return ( 
-    <>
-      <div className="py-50">
-
-      </div>
-    </>
+    <div className="pt-20">
+      <Services/>
+    </div>
   );
 }
