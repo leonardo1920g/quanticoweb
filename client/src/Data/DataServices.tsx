@@ -24,7 +24,7 @@ export const DataService = [
     },
 
     {
-        title: "Socil Media",
+        title: "Social Media",
         subtitle: "Gestión estratégica de redes",
         image: social,
         characteristics: "Conexión y visibilidad digital",

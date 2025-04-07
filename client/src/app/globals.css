@@ -44,3 +44,44 @@ body {
 .buzz-animation {
   animation: buzz 1.5s ease-in-out infinite;
 }
+
+
+/* separador */
+.separator-container {
+  position: relative;
+  width: 100vw;
+  height: 5px;
+  background: #002366; /* Azul rey */
+  overflow: hidden;
+  z-index: 10;
+}
+
+.separator-trail {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 255, 0.05) 20%,
+    rgba(0, 255, 255, 0.5) 45%,
+    rgba(0, 255, 255, 1) 50%,
+    rgba(0, 255, 255, 0.5) 55%,
+    rgba(0, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 12px #00ffff);
+  animation: moveTrail 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveTrail {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
