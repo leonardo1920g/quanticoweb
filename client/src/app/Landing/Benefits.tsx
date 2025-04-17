@@ -1,4 +1,4 @@
-const Advantages = () => {
+const Benefits = () => {
 
     return (
         <div className="p-20 bg-[#01001E]">
@@ -9,4 +9,4 @@ const Advantages = () => {
     )
 };
 
-export default Advantages;
+export default Benefits;

@@ -46,7 +46,7 @@ const FooterContact3 = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`inline-flex items-center gap-3 transition-transform duration-150 ease-out active:scale-95 active:shadow-inner 
-                                ${pathname === href ? "text-teal-400 scale-110" : "text-white hover:text-teal-400 hover:scale-110"}`
+                                ${pathname === href ? "text-teal-400 scale-110" : "text-white hover:text-[#BFFF00] hover:scale-110"}`
                             }
                             >
                                 {icon}

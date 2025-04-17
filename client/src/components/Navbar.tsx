@@ -35,7 +35,7 @@ const Navbar = () => {
                         <Link
                             href={href}
                             className={`inline-block transition-transform duration-300 ${
-                                pathname === href ? "text-teal-400 scale-110" : "text-white hover:text-teal-400 hover:scale-110"
+                                pathname === href ? "text-teal-400 scale-110" : "text-white hover:text-[#BFFF00] hover:scale-110"
                             }`}
                         >
                             {label}

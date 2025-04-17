@@ -57,7 +57,7 @@ const CardService = () => {
             <div className="relative z-10 px-20 py-5 max-w-[50%] text-white flex flex-col justify-around h-full">
               <h2 className="text-5xl font-bold text-teal-400">{service.title}</h2>
               <h3 className="text-2xl font-medium">{service.subtitle}</h3>
-              <p className="text-xl mt-2 text-teal-400 font-medium">
+              <p className="text-xl mt-2 text-[#BFFF00] font-medium">
                 {service.characteristics}
               </p>
 
@@ -68,14 +68,14 @@ const CardService = () => {
               <div className="flex justify-center items-center gap-10 mt-4">
                 <Link
                   href={service.href}
-                  className="flex justify-center items-center font-semibold bg-teal-500 w-40 py-2 rounded text-base hover:bg-teal-400 transition"
+                  className="flex justify-center items-center font-semibold bg-teal-500 hover:text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition hover:shadow-md hover:shadow-[#A8E600]"
                 >
                   Ver más
                 </Link>
 
                 <Link
                   href="/contacto"
-                  className="flex justify-center items-center font-semibold bg-white text-black w-40 py-2 rounded text-base hover:bg-gray-300 transition"
+                  className="flex justify-center items-center font-semibold bg-white text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition hover:shadow-md hover:shadow-[#A8E600]"
                 >
                   Contactar
                 </Link>

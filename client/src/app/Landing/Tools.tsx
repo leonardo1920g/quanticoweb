@@ -20,7 +20,7 @@ const Tools: React.FC = () => {
     if (currentIndex > 0) {
       setIsSliding(true);
       setCurrentIndex(currentIndex - 1);
-      setSelectedTool(null); // Cierra la ventana de descripción al navegar
+      setSelectedTool(null); 
     }
   };
 
@@ -28,7 +28,7 @@ const Tools: React.FC = () => {
     if (currentIndex < Math.floor(totalItems / itemsPerPage)) {
       setIsSliding(true);
       setCurrentIndex(currentIndex + 1);
-      setSelectedTool(null); // Cierra la ventana de descripción al navegar
+      setSelectedTool(null); 
     }
   };
 
@@ -39,21 +39,22 @@ const Tools: React.FC = () => {
     if (isSliding) {
       const timeout = setTimeout(() => {
         setIsSliding(false);
-      }, 300); // El tiempo de la transición debe coincidir con la duración de la animación
+      }, 300);
       return () => clearTimeout(timeout);
     }
   }, [isSliding]);
 
   return (
-    <section className="pb-20 bg-[#01001E]">
+    <section className="pb-20 bg-gradient-to-b from-[#01001E] to-[#020054]">
       <div className="px-5 text-center">
-        <p className="text-lg text-teal-400 mb-20">
-          Estas son algunas de nuestras herramientas para mejorar el desarrollo de tu empresa
+        <p className="text-lg text-[#BFFF00] mb-5">
+          Explora las herramientas que tenemos para ti y da el primer paso hacia el futuro digital de tu marca.
         </p>
+        <div className="p-[2px] bg-white w-5/6 rounded-2xl mb-10 mx-auto"></div>
 
         {/* Controles de paginación */}
         <div className="relative mb-10">
-          {/* Flecha izquierda solo visible si no estamos en la primera página */}
+          {/* Flecha izquierda*/}
           <button
             onClick={scrollLeft}
             disabled={currentIndex === 0}
@@ -72,7 +73,7 @@ const Tools: React.FC = () => {
             />
           </div>
 
-          {/* Flecha derecha solo visible si no estamos en la última página */}
+          {/* Flecha derecha*/}
           <button
             onClick={scrollRight}
             disabled={currentIndex >= Math.floor(totalItems / itemsPerPage)}
@@ -83,12 +84,16 @@ const Tools: React.FC = () => {
         </div>
 
         {/* Descripción de la herramienta seleccionada */}
-        {selectedToolData && (
+        {selectedToolData ? (
           <div className="mt-8 flex flex-col items-center px-15">
-            <div className="bg-transparent border-[#BFFF00] border-3 p-6 rounded-md w-full">
+            <div className="bg-transparent border-[#BFFF00] border-3 p-6 rounded-md w-full filter drop-shadow-[0_0_10px_#BFFF00]">
               <h3 className="text-[#BFFF00] text-xl font-semibold mb-4">{selectedToolData.name}</h3>
               <p className="text-white">{selectedToolData.description}</p>
             </div>
+          </div>
+        ) : (
+          <div className="mt-8 text-[#BFFF00] text-sm">
+            <p>Para ver más información, haz clic en alguna de las herramientas que te interese.</p>
           </div>
         )}
       </div>
