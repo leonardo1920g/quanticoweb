@@ -1,10 +1,11 @@
 const Technologies = () => {
 
     return (
-        <div className="p-20 bg-[#01001E]">
-            <p className="text-xl text-white">
-                Tecnologias
-            </p>
+        
+        <div className="p-20 bg-gradient-to-b from-[#01001E] to-[#020054]">
+            <h2>
+                
+            </h2>
         </div>
     )
 };

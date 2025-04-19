@@ -85,9 +85,13 @@ const Tools: React.FC = () => {
 
         {/* Descripción de la herramienta seleccionada */}
         {selectedToolData ? (
-          <div className="mt-8 flex flex-col items-center px-15">
-            <div className="bg-transparent border-[#BFFF00] border-3 p-6 rounded-md w-full filter drop-shadow-[0_0_10px_#BFFF00]">
-              <h3 className="text-[#BFFF00] text-xl font-semibold mb-4">{selectedToolData.name}</h3>
+          <div
+            className={`mt-8 flex flex-col items-center px-15 
+              transition-transform duration-500 ease-in-out 
+              transform ${selectedTool ? 'scale-100 opacity-100' : 'scale-75 opacity-0'}`}
+          >
+            <div className="bg-transparent border-[#BFFF00] border-3 p-6 rounded-md w-full shadow-[0_0_10px_#BFFF00]">
+              <h3 className="text-[#BFFF00] text-xl font-semibold mb-4 filter drop-shadow-[0_0_10px_#BFFF00]">{selectedToolData.name}</h3>
               <p className="text-white">{selectedToolData.description}</p>
             </div>
           </div>

@@ -3,12 +3,12 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
-
+import LoadingPage from "@/components/Loading";
 
 const poppins = Poppins({
-  variable: "--font-poppins", // Variable CSS para usar en Tailwind
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // Pesos que usaremos
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,12 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
-        <Navbar/>
+      <body className={`${poppins.variable} antialiased`}>
+        <LoadingPage />
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
