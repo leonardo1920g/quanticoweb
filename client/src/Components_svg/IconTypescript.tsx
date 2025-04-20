@@ -1,4 +1,4 @@
-const IconWhatsapp = ({className} : { className: string}) => {
+const IconTypescript = ({className} : { className: string}) => {
     return (
         <svg 
             className={className}
@@ -8,4 +8,4 @@ const IconWhatsapp = ({className} : { className: string}) => {
     )
 };
 
-export default IconWhatsapp;
+export default IconTypescript;
