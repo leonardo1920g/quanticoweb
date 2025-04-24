@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import BackgroundLoading from '@/Ui/BackgroundLoading'; // Asegúrate de que la ruta sea correcta
 
 const Loading = () => {
   const [showLoading, setShowLoading] = useState(true);
   const [dotCount, setDotCount] = useState(0);
 
   useEffect(() => {
+    // Temporizador para desaparecer el loader
     const timer = setTimeout(() => {
       setShowLoading(false);
-    }, 8000);
+    }, 8000); // 8 segundos de loading
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,51 +25,46 @@ const Loading = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (!showLoading) return null;
-
-  const dots = '.'.repeat(dotCount).padEnd(3, '\u00A0'); // Espacios duros para evitar salto del texto
+  const dots = '.'.repeat(dotCount).padEnd(3, '\u00A0');
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-b from-[#1e2a47] to-zinc-950 font-sans">
-      <div className="flex flex-col items-center relative text-center">
-        {/* Logo con animación */}
-        <div className="relative w-40 h-40 flex items-center justify-center fade-loop">
-          <Image
-            src="/images/iconoQuantico3d.png"
-            alt="Logo Quantico"
-            width={128}
-            height={128}
-            className="relative z-10"
-          />
-          <div className="absolute w-[220px] h-[220px] animate-spin-slow">
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-3 h-3 bg-[#BFFF00] rounded-full"
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  transform: `rotate(${i * 45}deg) translateX(100px) translateY(-50%)`,
-                  transformOrigin: 'center',
-                }}
-              />
-            ))}
+    <>
+      {/* Loader en pantalla */}
+      <div
+        className={`fixed inset-0 z-[9999] flex items-center justify-center font-sans transition-opacity duration-1000 ease-out ${
+          showLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Fondo animado */}
+        <BackgroundLoading />
+
+        {/* Contenido del loader */}
+        <div className="flex flex-col items-center relative text-center z-10 mt-41">
+          {/* Logo centrado */}
+          <div className="relative w-[200px] h-[200px] flex items-center justify-center">
+            <Image
+              src="/images/iconoQuantico3d.png"
+              alt="Logo Quantico"
+              width={200}  // Tamaño aumentado
+              height={200} // Tamaño aumentado
+              className="relative z-10"
+            />
           </div>
-        </div>
 
-        {/* Texto de carga */}
-        <div className="mt-14 text-[#BFFF00] text-4xl font-bold tracking-wide whitespace-pre font-sans">
-          Cargando{dots}
-        </div>
+          {/* Texto de carga */}
+          <div className="mt-10 text-[#BFFF00] text-4xl font-bold tracking-wide whitespace-pre font-sans">
+            Cargando{dots}
+          </div>
 
-        {/* Frase inspiradora */}
-        <p className="mt-4 text-lg font-medium filter drop-shadow-[0_0_10px_#5FFFE6] text-[#5FFFE6]">
-          Impulsamos tu futuro, transformando digitalmente.
-        </p>
+          {/* Frase inspiradora */}
+          <p className="mt-4 text-lg font-medium filter drop-shadow-[0_0_10px_#5FFFE6] text-[#5FFFE6]">
+            Impulsamos tu futuro, transformando digitalmente.
+          </p>
 
-        {/* Barra de carga */}
-        <div className="mt-6 w-64 h-3 bg-[#1f1f3d] rounded-full overflow-hidden shadow-inner">
-          <div className="h-full bg-[#5FFFE6] animate-progress-bar" />
+          {/* Barra de carga */}
+          <div className="mt-6 w-64 h-3 bg-[#1f1f3d] rounded-full overflow-hidden shadow-inner">
+            <div className="h-full bg-[#5FFFE6] animate-progress-bar" />
+          </div>
         </div>
       </div>
 
@@ -108,7 +105,7 @@ const Loading = () => {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

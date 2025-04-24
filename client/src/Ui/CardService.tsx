@@ -8,14 +8,26 @@ import logoService from "@/Images/LogoPlano.png";
 
 const CardService = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [startAutoChange, setStartAutoChange] = useState(false);
 
-  // Avanzar automáticamente cada 8 segundos
+  // Avanzar automáticamente cada 8 segundos después de 16 segundos de retraso
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 8000);
-    return () => clearInterval(interval);
+    const delayTimer = setTimeout(() => {
+      setStartAutoChange(true); // Iniciar el cambio automático de tarjetas después de 10 segundos
+    }, 10000); // Retrasar 10 segundos
+
+    return () => clearTimeout(delayTimer);
   }, []);
+
+  useEffect(() => {
+    if (startAutoChange) {
+      const interval = setInterval(() => {
+        handleNext();
+      }, 8000); // Cambiar cada 8 segundos
+
+      return () => clearInterval(interval);
+    }
+  }, [startAutoChange]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % DataService.length);
@@ -66,19 +78,19 @@ const CardService = () => {
               <p className="text-base">{service.description}</p>
 
               <div className="flex justify-center items-center gap-10 mt-4">
-                <Link
-                  href={service.href}
-                  className="flex justify-center items-center font-semibold bg-teal-500 hover:text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition hover:shadow-md hover:shadow-[#A8E600]"
-                >
-                  Ver más
-                </Link>
+              <Link
+                href={service.href}
+                className="flex justify-center items-center font-semibold bg-teal-500 hover:text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-[0_0_10px_#BFFF00]"
+              >
+                Ver más
+              </Link>
 
-                <Link
-                  href="/contacto"
-                  className="flex justify-center items-center font-semibold bg-white text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition hover:shadow-md hover:shadow-[#A8E600]"
-                >
-                  Contactar
-                </Link>
+              <Link
+                href="/contacto"
+                className="flex justify-center items-center font-semibold bg-white text-black w-40 py-2 rounded text-base hover:bg-[#BFFF00] transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-[0_0_10px_#BFFF00]"
+              >
+                Contactar
+              </Link>
               </div>
             </div>
 

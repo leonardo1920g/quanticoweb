@@ -15,6 +15,7 @@ export const CardBenefit = ({ Icon, name, description, color }: CardBenefitProps
             className="w-3/5 p-8 rounded-2xl border text-center transition-all duration-300 min-h-[300px] flex flex-col justify-center"
             style={{
                 borderColor: hexColor,
+                borderWidth: "3px",
                 backgroundColor,
                 backdropFilter: "blur(10px)",
                 boxShadow: `0 0 20px ${hexColor}`,
@@ -41,7 +42,7 @@ export const CardBenefit = ({ Icon, name, description, color }: CardBenefitProps
             <h3 className="text-2xl font-semibold mb-2" style={{ color: hexColor }}>
                 {name}
             </h3>
-            <p className="text-sm text-white">{description}</p>
+            <p className="text-sm">{description}</p>
 
             <style jsx>{`
                 .animate-orbit1,

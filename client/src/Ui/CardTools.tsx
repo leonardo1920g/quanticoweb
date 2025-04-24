@@ -32,10 +32,10 @@ const CardTools: React.FC<CardToolsProps> = ({ tools, onSelectTool, selectedTool
         return (
           <div
             key={tool.id}
-            className={`bg-transparent border-3 border-[#5FFFE6] py-10 rounded-lg shadow-lg cursor-pointer w-[266px] transition-all duration-300
+            className={`border-3 border-[#5FFFE6] py-10 rounded-2xl cursor-pointer w-[266px] transition-all duration-300
               ${isSelected 
-                ? 'scale-105 border-[#BFFF00] filter drop-shadow-[0_0_10px_#BFFF00]' 
-                : 'hover:scale-105 hover:filter hover:drop-shadow-[0_0_10px_#5FFFE6] hover:border-[#5FFFE6] border-teal-450'}`}
+                ? 'scale-105 border-[#BFFF00] shadow-[0_0_10px_#BFFF00] bg-[#0A1E1999]' 
+                : 'hover:scale-105 hover:shadow-[0_0_15px_#5FFFE6] hover:border-[#5FFFE6] border-teal-450 bg-[#0D242099] backdrop-blur-sm'}`}
             onClick={() => onSelectTool(tool.id)}
           >
             <div className="relative flex justify-center mb-10 group">
